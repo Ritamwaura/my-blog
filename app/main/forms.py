@@ -10,3 +10,11 @@ class PostForm(FlaskForm):
     post = TextAreaField("Write your post here")
     category = SelectField("Post Category",choices=[('Tech','Tech'),('Travel','Travel'),('Fashion','Fashion'),('Food','Food'),('Life','Life'),('Culture','Culture')],validators=[Required()])
     submit = SubmitField('Submit')
+
+class SubscriberForm(FlaskForm):
+    email = StringField("Email Address",validators=[Required(),Email()])
+    submit = SubmitField("Subscribe")
+
+    def validate_email(self,data_field):
+        if Subscriber.query.filter_by(email =data_field.data).first():
+            raise ValidationError("Account already subscribed with that email")
