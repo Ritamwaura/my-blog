@@ -1,7 +1,6 @@
 import os
 
 class Config:
-    # SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://rita:123@localhost/blog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = 'rita'
@@ -30,7 +29,7 @@ class TestConfig(Config):
     DEBUG =True 
 
 class DevConfig(Config):
-    # SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://rita:123@localhost/blog'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://rita:123@localhost/blog'
     DEBUG = True
 
 config_options = {

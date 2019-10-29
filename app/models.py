@@ -50,7 +50,7 @@ class Post(db.Model):
     __tablename__ = 'posts'
 
     id = db.Column(db.Integer,primary_key=True)
-    post_id=db.Column(db.Integer)
+    #post_id=db.Column(db.Integer)
     title = db.Column(db.String)
     post = db.Column(db.String)
     category = db.Column(db.String)
@@ -68,6 +68,7 @@ class Post(db.Model):
         return posts
 
 class Comment(db.Model):
+    
     __tablename__='comments'
 
     id = db.Column(db.Integer,primary_key = True)
@@ -75,6 +76,7 @@ class Comment(db.Model):
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     post_id = db.Column(db.Integer,db.ForeignKey("posts.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
 
     def save_comment(self):
         db.session.add(self)
