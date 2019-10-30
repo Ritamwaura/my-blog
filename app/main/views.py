@@ -21,7 +21,7 @@ def index():
         new_subscriber=Subscriber(email=email)
         new_subscriber.save_subscriber()
 
-        mail_message("Subscription Received","email/welcome_subscriber",new_subscriber.email,subscriber=new_subscriber)
+        #mail_message("Subscription Received","email/welcome_subscriber",new_subscriber.email,subscriber=new_subscriber)
 
     title = "Welcome to Rita Blog"
     
@@ -52,10 +52,10 @@ def new_post():
 
         new_post.save_post()
 
-        subscribers=Subscriber.query.all()
+        # subscribers=Subscriber.query.all()
 
-        for subscriber in subscribers:
-            mail_message("New Blog Post","email/new_post",subscriber.email,post=new_post)
+        # for subscriber in subscribers:
+        #     mail_message("New Blog Post","email/new_post",subscriber.email,post=new_post)
 
         return redirect(url_for('main.index'))
 

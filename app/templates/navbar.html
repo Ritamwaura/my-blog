@@ -1,28 +1,39 @@
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a style="color: brown;align-content: center;height: 15px;" class="navbar-brand" href="/"></a>
-            <a class="navbar-brand" href="/">my Blog</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{url_for('auth.register_admin')}}">Add Admin</a></li>
-                <li><a href="/new_post">New Post</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if current_user.role_id==1%}
-                <li><a href="/new_post">New Post</a></li>
-                <li><a href="{{url_for('auth.register_admin')}}">Add Admin</a></li>
-                {% endif %} {% if current_user.is_authenticated %}
-                <li>
-                    <a href="#">{{ current_user.username }}</a>
-                </li>
-                <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
-                {% else %}
-                <li role="separator" class="divider"></li>
-                <li><a href="{{url_for('auth.login')}}">Sign In</a></li>
-                {% endif %}
-            </ul>
-        </div>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>my blog</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<div class="navbar" role="navigation">
+    <div class="navbar-header">
+        <a style="color: blue; align-content: center height:15px;" class="navbar-brand" href="/"> my blogs</a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="{{url_for('auth.register_admin')}}">Add Admin</a></li>
+            <li><a href="/new_post">New Post</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if current_user.role_id==1%}
+            <li><a href="/new_post">New Post</a></li>
+            <li><a href="{{url_for('auth.register_admin')}}">Add Admin</a></li>
+            {% endif %} {% if current_user.is_authenticated %}
+            <li>
+                <a href="#">{{ current_user.username }}</a>
+            </li>
+            <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
+            {% else %}
+            <li role="separator" class="divider"></li>
+            <li><a href="{{url_for('auth.login')}}">Sign In</a></li>
+            {% endif %}
+        </ul>
     </div>
 </div>
