@@ -1,8 +1,6 @@
-{% extends 'base.html' %} {% import 'macros.html' as macro%} {% import "bootstrap/wtf.html" as wtf %} {% block styles%} {{ super() }}
-<link href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Montserrat|Neucha|Noto+Serif+JP|Noto+Serif+KR|Roboto+Mono" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"> #
+{% extends 'base.html' %} {% import 'macros.html' as macro%} {% import "bootstrap/wtf.html" as wtf %} {%block content%}
 
-<body background="{{ url_for('static', filename='photos/ngina.jpg') }}">
+<body background="{{ url_for('static', filename='photos/baraka.jpg') }}">
 
     <div class="col-md-8">
         {% for post in posts %}
